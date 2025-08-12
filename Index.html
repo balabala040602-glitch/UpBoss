@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UpBoss - Jasa Joki Game</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #0a0a0a;
+        color: white;
+    }
+    header {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(90deg, #0f0f0f, #111111);
+        box-shadow: 0 0 10px cyan;
+    }
+    header h1 {
+        font-size: 2.5em;
+        color: cyan;
+        text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+        margin: 0;
+    }
+    header p {
+        font-size: 1.2em;
+        color: #aaa;
+        margin: 5px 0 0;
+    }
+    .games {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    .card {
+        background: #111;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0,255,255,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 25px cyan;
+    }
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    .card h3 {
+        text-align: center;
+        padding: 10px;
+        color: cyan;
+    }
+    .order-btn {
+        display: block;
+        background: cyan;
+        color: black;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        margin: 10px;
+        transition: background 0.3s ease;
+    }
+    .order-btn:hover {
+        background: #00cccc;
+    }
+    form {
+        max-width: 400px;
+        margin: 40px auto;
+        background: #111;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    }
+    form h2 {
+        text-align: center;
+        color: cyan;
+    }
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background: cyan;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    button:hover {
+        background: #00cccc;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Kentang-Joki</h1>
+    <p>Naikin Rank? Kentang-joki Aja!</p>
+</header>
+
+<section class="games">
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/88/Free_Fire_icon.png" alt="Free Fire">
+        <h3>Free Fire</h3>
+        <a href="https://wa.me/6281234567890" class="order-btn">Pesan Sekarang</a>
+    </div>
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/5/53/PUBG_Mobile_logo.png" alt="PUBG Mobile">
+        <h3>PUBG Mobile</h3>
+        <a href="https://wa.me/6281234567890" class="order-btn">Pesan Sekarang</a>
+    </div>
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Bloodstrike_logo.png" alt="Bloodstrike">
+        <h3>Bloodstrike</h3>
+        <a href="https://wa.me/6281234567890" class="order-btn">Pesan Sekarang</a>
+    </div>
+</section>
+
+<form onsubmit="sendOrder(event)">
+    <h2>Form Order</h2>
+    <input type="text" id="nama" placeholder="Nama" required>
+    <input type="text" id="idgame" placeholder="ID Game" required>
+    <select id="game" required>
+        <option value="">Pilih Game</option>
+        <option>Free Fire</option>
+        <option>PUBG Mobile</option>
+        <option>Bloodstrike</option>
+    </select>
+    <input type="text" id="paket" placeholder="Paket Joki" required>
+    <button type="submit">Kirim ke WhatsApp</button>
+</form>
+
+<script>
+function sendOrder(e) {
+    e.preventDefault();
+    let nama = document.getElementById('nama').value;
+    let idgame = document.getElementById('idgame').value;
+    let game = document.getElementById('game').value;
+    let paket = document.getElementById('paket').value;
+    let pesan = `Halo UpBoss, saya mau joki:\nNama: ${nama}\nID Game: ${idgame}\nGame: ${game}\nPaket: ${paket}`;
+    window.open(`https://wa.me/6283175650440?text=${encodeURIComponent(pesan)}`, '_blank');
+}
+</script>
+
+</body>
+</html>
